@@ -1,8 +1,13 @@
 package org.example.spring_introduction;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component("dogBean")
+@Scope("singleton")
 public class Dog implements Pet {
 //    private String name;
 
@@ -14,9 +19,11 @@ public class Dog implements Pet {
 //        this.name = name;
 //    }
 
+    @PostConstruct
     public void init() { //access modifier might be anything and the name is not a key word
         System.out.println("Dog init");
     }
+    @PreDestroy
     public void destroy() { //access modifier might be anything and the name is not a key word
         System.out.println("Dog destroy");
     }
