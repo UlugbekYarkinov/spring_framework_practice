@@ -9,11 +9,11 @@ public class Test4 {
         Dog myDog = context.getBean("myPet", Dog.class);
         Dog yourDog = context.getBean("myPet", Dog.class);
 
-        myDog.setName("Gera");
-        yourDog.setName("Bob");
-
-        System.out.println(myDog.getName());
-        System.out.println(yourDog.getName());
+//        myDog.setName("Gera");
+//        yourDog.setName("Bob");
+//
+//        System.out.println(myDog.getName());
+//        System.out.println(yourDog.getName());
 
         System.out.println(myDog==yourDog);
         System.out.println(myDog);
