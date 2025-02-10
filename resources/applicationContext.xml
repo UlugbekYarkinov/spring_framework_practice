@@ -17,8 +17,8 @@
     <bean id="myPerson" class="org.example.spring_introduction.Person">
 <!--        <constructor-arg ref="myPet"/>-->
         <property name="pet" ref="myPet"/>
-        <property name="surname" value="Yarkinov"/>
-        <property name="age" value="24"/>
+        <property name="surname" value="${person.surname}"/>
+        <property name="age" value="${person.age}"/>
     </bean>
 
 </beans>
