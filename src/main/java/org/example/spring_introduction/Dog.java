@@ -19,14 +19,14 @@ public class Dog implements Pet {
 //        this.name = name;
 //    }
 
-    @PostConstruct
-    public void init() { //access modifier might be anything and the name is not a key word
-        System.out.println("Dog init");
-    }
-    @PreDestroy
-    public void destroy() { //access modifier might be anything and the name is not a key word
-        System.out.println("Dog destroy");
-    }
+//    @PostConstruct
+//    public void init() { //access modifier might be anything and the name is not a key word
+//        System.out.println("Dog init");
+//    }
+//    @PreDestroy
+//    public void destroy() { //access modifier might be anything and the name is not a key word
+//        System.out.println("Dog destroy");
+//    }
 
     public Dog() {
         System.out.println("Dog bean is created");
