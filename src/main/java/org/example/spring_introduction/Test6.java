@@ -8,6 +8,9 @@ public class Test6 {
 
         Person person = context.getBean("personBean", Person.class);
         person.callYourPet();
+//        Pet cat1 = context.getBean("catBean",Pet.class);
+//        Pet cat2 = context.getBean("catBean",Pet.class);
+//        System.out.println(cat1==cat2);
 
         context.close();
     }
