@@ -9,15 +9,15 @@ public class Person {
     private String surname;
     private int age;
 
-    @Autowired //If we have only one constructor, we can omit @Autowired annotation
-    public Person(Pet pet) {
-        System.out.println("Person bean is created");
-        this.pet = pet;
-    }
-
-//    public Person() {
+//    @Autowired //If we have only one constructor, we can omit @Autowired annotation
+//    public Person(Pet pet) {
 //        System.out.println("Person bean is created");
+//        this.pet = pet;
 //    }
+
+    public Person() {
+        System.out.println("Person bean is created");
+    }
 
     public String getSurname() {
         return surname;
@@ -37,6 +37,7 @@ public class Person {
         this.age = age;
     }
 
+    @Autowired
     public void setPet(Pet pet) {
         System.out.println("Person pet is set");
         this.pet = pet;
