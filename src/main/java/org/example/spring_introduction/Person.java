@@ -1,11 +1,11 @@
 package org.example.spring_introduction;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component("personBean")
 public class Person {
-    @Autowired //it is not recommended as it is less testable, violates encapsulation principle, ...
     private Pet pet;
     private String surname;
     private int age;
@@ -38,7 +38,8 @@ public class Person {
         this.age = age;
     }
 
-//    @Autowired
+    @Autowired
+    @Qualifier("dogBean")
     public void setPet(Pet pet) {
         System.out.println("Person pet is set");
         this.pet = pet;
