@@ -1,10 +1,7 @@
 package org.example.aop.aspects;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.AfterThrowing;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.*;
 import org.example.aop.Student;
 import org.springframework.stereotype.Component;
 
@@ -37,5 +34,10 @@ public class UniversityLoggingAspect {
     public void afterThrowingGetStudentsLoggingAdvice(Throwable exception) {
         System.out.println("afterThrowingGetStudentsLoggingAdvice logging THROWING Exception getStudents()");
         System.out.println(exception);
+    }
+
+    @After("execution(* getStudents())")
+    public void afterGetStudentsLoggingAdvice() {
+        System.out.println("afterGetStudentsLoggingAdvice logging AFTER FINAL getStudents()");
     }
 }
