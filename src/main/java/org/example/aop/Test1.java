@@ -12,8 +12,7 @@ public class Test1 {
 //        Book book = context.getBean("book", Book.class);
         uniLibrary.getBook();
 //        uniLibrary.returnBook();
-        uniLibrary.returnMagazine();
-        uniLibrary.addBook();
+        uniLibrary.getMagazine();
 
 //        SchoolLibrary schoolLibrary = context.getBean("schoolLibrary", SchoolLibrary.class);
 //        schoolLibrary.getBook();
