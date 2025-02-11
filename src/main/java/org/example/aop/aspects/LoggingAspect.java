@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class LoggingAspect {
 
-    @Before("execution(public void get*(..))") //.. means any number of parameters
+    @Before("execution(public void getBook(org.example.aop.Book))") //when we write the class Name it should be complete
     public void beforeGetBookAdvice() {
         System.out.println("Before getBookAdvice: Attempt to get a book");
     }
