@@ -12,7 +12,7 @@ public class UniLibrary extends AbstractLibrary {
         return "Return book from UniLibrary";
     }
 
-    public void getMagazine(int numberOfMagazines) {
-        System.out.println("Get " + numberOfMagazines + " magazines from UniLibrary");
+    public void getMagazine() {
+        System.out.println("Get magazines from UniLibrary");
     }
 }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class LoggingAspect {
 
-    @Before("execution(public void get*(*))") //this is a pointcut with a wildcard
+    @Before("execution(public void get*(..))") //.. means any number of parameters
     public void beforeGetBookAdvice() {
         System.out.println("Before getBookAdvice: Attempt to get a book");
     }
