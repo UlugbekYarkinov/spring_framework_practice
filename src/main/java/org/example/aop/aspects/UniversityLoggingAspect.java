@@ -2,6 +2,7 @@ package org.example.aop.aspects;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.example.aop.Student;
@@ -30,5 +31,11 @@ public class UniversityLoggingAspect {
         firstStudent.setAvgScore(avgGrade);
 
         System.out.println("afterReturningGetStudentsLoggingAdvice logging AFTER getStudents()");
+    }
+
+    @AfterThrowing(pointcut = "execution(* getStudents())", throwing = "exception")
+    public void afterThrowingGetStudentsLoggingAdvice(Throwable exception) {
+        System.out.println("afterThrowingGetStudentsLoggingAdvice logging THROWING Exception getStudents()");
+        System.out.println(exception);
     }
 }

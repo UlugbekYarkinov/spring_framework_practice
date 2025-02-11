@@ -20,6 +20,10 @@ public class University {
     }
 
     public List<Student> getStudents() {
+        System.out.println("Beginning of getStudents");
+
+        System.out.println(students.get(3)); //intended Exception
+
         System.out.println("Information from method getStudents:");
         System.out.println(students);
         return students;
