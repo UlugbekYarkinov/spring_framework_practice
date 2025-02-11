@@ -4,7 +4,7 @@ import org.aspectj.lang.annotation.Pointcut;
 
 public class MyPointcuts {
 
-    @Pointcut("execution(* add*(..))")
+    @Pointcut("execution(* abc*(..))") //changed this Pointcut from add to clear log
     public void allAddMethods(){}
 
 }
