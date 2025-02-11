@@ -21,7 +21,7 @@ public class NewLoggingAspect {
             targetMethodResult = proceedingJoinPoint.proceed();
         } catch (Exception e) {
             System.out.println("aroundReturnBookLoggingAdvice: Exception was caught: " + e);
-            targetMethodResult = "NON defined book name";
+            throw e;
         }
 
 //        targetMethodResult = "God of WAR"; //can change the returned value
