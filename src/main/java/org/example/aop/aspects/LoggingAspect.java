@@ -1,6 +1,9 @@
 package org.example.aop.aspects;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.reflect.MethodSignature;
+import org.example.aop.Book;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -44,9 +47,33 @@ public class LoggingAspect {
 //        System.out.println("beforeGetAndReturnLoggingAdvice: writing Log #3");
 //    }
 
-    @Before("org.example.aop.aspects.MyPointcuts.allGetMethods()") //when we write the class Name it should be complete
-    public void beforeGetLoggingAdvice() {
+    @Before("org.example.aop.aspects.MyPointcuts.allAddMethods()")
+    public void beforeAddLoggingAdvice(JoinPoint joinPoint) {
+        MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+        System.out.println("methodSignature: " + methodSignature);
+        System.out.println("methodSignature.getMethod(): " + methodSignature.getMethod());
+        System.out.println("methodSignature.getReturnType(): " + methodSignature.getReturnType());
+        System.out.println("methodSignature.getName(): " + methodSignature.getName());
+
+        Object[] arguments = joinPoint.getArgs();
+
+        if (arguments != null) {
+            for (Object arg : arguments) {
+                if(arg instanceof Book) {
+                    Book book = (Book) arg;
+                    System.out.println("Info about the book: " +
+                            "name: " + book.getName() +
+                            ", author: " + book.getAuthor() +
+                            ", year of publication: " + book.getYearOfPublication());
+                } else if (arg instanceof String) {
+                    System.out.println("The book was added to the library by " + arg);
+                }
+            }
+        }
+
+
         System.out.println("Before getBookAdvice: Attempt Logging to get a book or a magazine");
+        System.out.println("***************");
     }
 
 
