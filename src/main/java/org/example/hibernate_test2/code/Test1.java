@@ -15,18 +15,13 @@ public class Test1 {
                 .addAnnotatedClass(Detail.class)
                 .buildSessionFactory()) {
             Session session = factory.getCurrentSession();
-
-            Employee employee = new Employee("Ulugbek", "Yarkinov", "IT", 3000);
-            Detail detail = new Detail("Baku", "123456", "yul@gmail.com");
-
-            employee.setEmployeeDetail(detail);
-
             session.beginTransaction();
 
-            session.persist(employee);
+            Employee employee = session.get(Employee.class, 1);
 
+            System.out.println(employee.getEmployeeDetail());
 
-            session.getTransaction().commit(); //we do two actions in one transaction
+            session.getTransaction().commit();
         }
 
 
