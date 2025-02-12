@@ -15,22 +15,22 @@ public class Test1 {
             Session session = factory.getCurrentSession();
 
             Employee employee = new Employee(
-                    "Elena",
-                    "Petrov",
-                    "Sales",
-                    3050
+                    "Oleg",
+                    "Sidorov",
+                    "HR",
+                    2500
             );
 
             session.beginTransaction();
             session.persist(employee);
-            session.getTransaction().commit();
+//            session.getTransaction().commit();
 
             int id = employee.getId();
-            session = factory.getCurrentSession();
+//            session = factory.getCurrentSession();
 
-            session.beginTransaction();
+//            session.beginTransaction();
             Employee employeeFromDbById = session.get(Employee.class, id);
-            session.getTransaction().commit();
+            session.getTransaction().commit(); //we do two actions in one transaction
 
             System.out.println(employeeFromDbById);
         }
