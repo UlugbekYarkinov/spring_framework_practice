@@ -15,15 +15,24 @@ public class Test1 {
             Session session = factory.getCurrentSession();
 
             Employee employee = new Employee(
-                    "Misha",
-                    "Ivanov",
-                    "HR",
-                    3000
+                    "Elena",
+                    "Petrov",
+                    "Sales",
+                    3050
             );
 
             session.beginTransaction();
             session.persist(employee);
             session.getTransaction().commit();
+
+            int id = employee.getId();
+            session = factory.getCurrentSession();
+
+            session.beginTransaction();
+            Employee employeeFromDbById = session.get(Employee.class, id);
+            session.getTransaction().commit();
+
+            System.out.println(employeeFromDbById);
         }
 
 
