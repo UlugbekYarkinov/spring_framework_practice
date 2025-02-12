@@ -19,7 +19,9 @@ public class Test1 {
 
             Employee employee = session.get(Employee.class, 1);
 
-            System.out.println(employee.getEmployeeDetail());
+//            System.out.println(employee.getEmployeeDetail());
+
+            session.remove(employee); //two related objects will be deleted due to cascade
 
             session.getTransaction().commit();
         }
