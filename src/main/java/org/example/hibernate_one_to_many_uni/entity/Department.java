@@ -1,4 +1,4 @@
-package org.example.hibernate_one_to_many_bi.entity;
+package org.example.hibernate_one_to_many_uni.entity;
 
 import jakarta.persistence.*;
 
@@ -8,8 +8,8 @@ import java.util.List;
 @Entity
 @Table(name = "departments")
 public class Department {
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "department_id")
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE, CascadeType.DETACH},
+            mappedBy = "department")
     private List<Employee> emps;
 
     @Id
@@ -41,6 +41,7 @@ public class Department {
             this.emps = new ArrayList<>();
         }
         this.emps.add(emp);
+        emp.setDepartment(this); //each employee is referenced to THIS department object
     }
 
     public int getId() {

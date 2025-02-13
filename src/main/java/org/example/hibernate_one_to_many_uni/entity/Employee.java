@@ -1,10 +1,13 @@
-package org.example.hibernate_one_to_many_bi.entity;
+package org.example.hibernate_one_to_many_uni.entity;
 
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "employees")
 public class Employee {
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE, CascadeType.DETACH})
+    @JoinColumn(name = "department_id")
+    private Department department;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //.IDENTITY relies on DB realization mechanism
@@ -28,6 +31,14 @@ public class Employee {
         this.firstName = name;
         this.surname = surname;
         this.salary = salary;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
     public int getId() {
