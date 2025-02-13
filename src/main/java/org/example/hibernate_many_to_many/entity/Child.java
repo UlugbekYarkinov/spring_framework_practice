@@ -8,7 +8,7 @@ import java.util.List;
 @Entity
 @Table(name = "children")
 public class Child {
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(
             name = "child_section",
             joinColumns = @JoinColumn(name = "child_id"),
