@@ -9,7 +9,8 @@ import java.util.List;
 @Table(name = "departments")
 public class Department {
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE, CascadeType.DETACH},
-            mappedBy = "department")
+            mappedBy = "department",
+            fetch = FetchType.EAGER)
     private List<Employee> emps;
 
     @Id

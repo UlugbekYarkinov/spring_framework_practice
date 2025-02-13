@@ -43,14 +43,12 @@ public class Test1 {
 
             session.beginTransaction();
 
-            Employee employee1 = new Employee("AXaxa", "Aaa", 1000);
-            Employee employee2 = new Employee("Hahah", "Hhh", 290);
-
+            System.out.println("Get department: ");
             Department department = session.get(Department.class, 2);
-            department.addEmployeeToDepartment(employee1);
-            department.addEmployeeToDepartment(employee2);
 
-            session.merge(department);
+            System.out.println("Show department: " + department);
+
+            System.out.println("Show employees of department: " + department.getEmps());
 
             session.getTransaction().commit();
         }
