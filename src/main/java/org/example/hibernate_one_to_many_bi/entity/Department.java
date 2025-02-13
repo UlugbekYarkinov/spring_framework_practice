@@ -8,7 +8,8 @@ import java.util.List;
 @Entity
 @Table(name = "departments")
 public class Department {
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "department")
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE, CascadeType.DETACH},
+            mappedBy = "department")
     private List<Employee> emps;
 
     @Id
