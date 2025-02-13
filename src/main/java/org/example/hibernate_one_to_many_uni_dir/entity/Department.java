@@ -1,4 +1,4 @@
-package org.example.hibernate_one_to_many_bi.entity;
+package org.example.hibernate_one_to_many_uni_dir.entity;
 
 import jakarta.persistence.*;
 
