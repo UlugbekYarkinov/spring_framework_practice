@@ -72,9 +72,8 @@ public class Test {
 
             session.beginTransaction();
 
-            Section section = session.get(Section.class, 5);
-
-            session.remove(section);
+            Section section = session.get(Section.class, 2);
+            section.getChildren().get(0).setFirstName("John");
 
             session.getTransaction().commit();
 
