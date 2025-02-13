@@ -36,9 +36,10 @@ public class Test2 {
             session.beginTransaction();
 //            session.persist(detail); //by adding a detail, employee will automatically be added
 
-            Detail detail = session.get(Detail.class, 4);
+            Detail detail = session.get(Detail.class, 3);
+            detail.getEmployee().setEmployeeDetail(null); //we have to break a relationship and set detail_id (aka employeeDetail) as null
 
-            session.remove(detail); //this would delete both Detail and Employee records!
+            session.remove(detail); //this would delete both Detail and set detail_id of Employee to null!
 
             session.getTransaction().commit();
         }

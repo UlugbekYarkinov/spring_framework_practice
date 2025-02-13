@@ -5,8 +5,8 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "details")
 public class Detail {
-    @OneToOne(mappedBy = "employeeDetail", cascade = CascadeType.ALL) //we show the connection is reached my employeeDetail field in Employee class
-    //no need to write JoinColumn as we did it in Employee class!
+    @OneToOne(mappedBy = "employeeDetail",
+            cascade = {CascadeType.PERSIST, CascadeType.REFRESH}) //now deleting of Detail won't result in deleting of Employee
     private Employee employee;
 
     @Id
