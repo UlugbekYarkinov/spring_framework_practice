@@ -37,7 +37,8 @@ public class Test2 {
 //            session.persist(detail); //by adding a detail, employee will automatically be added
 
             Detail detail = session.get(Detail.class, 4);
-            System.out.println(detail.getEmployee());
+
+            session.remove(detail); //this would delete both Detail and Employee records!
 
             session.getTransaction().commit();
         }
