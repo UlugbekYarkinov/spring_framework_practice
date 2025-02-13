@@ -5,6 +5,9 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "details")
 public class Detail {
+    @OneToOne(mappedBy = "employeeDetail", cascade = CascadeType.ALL) //we show the connection is reached my employeeDetail field in Employee class
+    //no need to write JoinColumn as we did it in Employee class!
+    private Employee employee;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -59,6 +62,14 @@ public class Detail {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     @Override
