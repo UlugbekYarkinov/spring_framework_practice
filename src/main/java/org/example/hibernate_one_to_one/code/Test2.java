@@ -1,7 +1,7 @@
-package org.example.hibernate_test2.code;
+package org.example.hibernate_one_to_one.code;
 
-import org.example.hibernate_test2.entity.Detail;
-import org.example.hibernate_test2.entity.Employee;
+import org.example.hibernate_one_to_one.entity.Detail;
+import org.example.hibernate_one_to_one.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
